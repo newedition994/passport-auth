@@ -12,12 +12,12 @@ mongoose.connect(db, { useNewUrlParser: true })
     .then(() => console.log("MongoDB Connected..."))
     .catch(err => console.log(err));
 
-
-
-// Middleware
+// EJS
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
 
+// Body Parser
+app.use(express.urlencoded({ extended: false }));
 
 // Routes
 app.use('/', require('./routes/index'));
