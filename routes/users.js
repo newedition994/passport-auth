@@ -70,8 +70,10 @@ router.post('/register', (req, res) => {
                             // Save
                             newUser.save()
                                 .then(user => {
+                                    req.flash('success_msg', 'You are now logged in')
                                     res.redirect('/users/login')
                                 })
+                                .catch(err => console.log(err));
                         }))
                 }
             })
